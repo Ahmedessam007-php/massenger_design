@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 class chat extends StatefulWidget {
@@ -63,644 +65,1070 @@ class _chatState extends State<chat> {
         ),
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
 
-            Container(
-              margin: EdgeInsets.all(10),
-              height: 50,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.grey[700]),
-              child: TextFormField(
+          physics: AlwaysScrollableScrollPhysics(),
 
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(borderSide: BorderSide.none),
-                    hintText: "Search",
-                    prefixIcon: (Icon(Icons.search))),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+
+              Container(
+                margin: EdgeInsets.all(10),
+                height: 50,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.grey[700]),
+                child: TextFormField(
+
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(borderSide: BorderSide.none),
+                      hintText: "Search",
+                      prefixIcon: (Icon(Icons.search))),
+                ),
               ),
-            ),
-            SizedBox(height: 10,),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-
-              child: Row(
+              SizedBox(height: 10,),
+              Column(
                 children: [
                   Container(
-                    width: 80,
-                    child: Column(
-
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Stack(
-                            alignment: Alignment.bottomRight,
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundImage: AssetImage("images/welcomeman.png"),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.green,
-                                radius: 7,
-
-                              )
-                            ],
-                          ),
-                        ),
-                        Text("Kareem",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
-                      ],
-                    ),
+                    height: 100,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                      return buildstory();
+                    }, separatorBuilder:(context, index) {
+                      return SizedBox(width: 20,);
+                    }, itemCount: 10),
                   ),
-                  SizedBox(width: 15,),
                   Container(
-                    width: 80,
-                    child: Column(
-
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Stack(
-                            alignment: Alignment.bottomRight,
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundImage: AssetImage("images/welcomeman.png"),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.green,
-                                radius: 7,
-
-                              )
-                            ],
-                          ),
-                        ),
-                        Text("Eslam",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 15,),
-                  Container(
-                    width: 80,
-                    child: Column(
-
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Stack(
-                            alignment: Alignment.bottomRight,
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundImage: AssetImage("images/welcomeman.png"),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.green,
-                                radius: 7,
-
-                              )
-                            ],
-                          ),
-                        ),
-                        Text("Ahmed",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 15,),
-                  Container(
-                    width: 80,
-                    child: Column(
-
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Stack(
-                            alignment: Alignment.bottomRight,
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundImage: AssetImage("images/welcomeman.png"),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.green,
-                                radius: 7,
-
-                              )
-                            ],
-                          ),
-                        ),
-                        Text("Mohamed",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 15,),
-                  Container(
-                    width: 80,
-                    child: Column(
-
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Stack(
-                            alignment: Alignment.bottomRight,
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundImage: AssetImage("images/welcomeman.png"),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.green,
-                                radius: 7,
-
-                              )
-                            ],
-                          ),
-                        ),
-                        Text("Eslam",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 15,),
-                  Container(
-                    width: 80,
-                    child: Column(
-
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Stack(
-                            alignment: Alignment.bottomRight,
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundImage: AssetImage("images/welcomeman.png"),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.green,
-                                radius: 7,
-
-                              )
-                            ],
-                          ),
-                        ),
-                        Text("Eslam",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 15,),
-                  Container(
-                    width: 80,
-                    child: Column(
-
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Stack(
-                            alignment: Alignment.bottomRight,
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundImage: AssetImage("images/welcomeman.png"),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.green,
-                                radius: 7,
-
-                              )
-                            ],
-                          ),
-                        ),
-                        Text("Eslam",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 15,),
-                  Container(
-                    width: 80,
-                    child: Column(
-
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Stack(
-                            alignment: Alignment.bottomRight,
-                            children: [
-                              CircleAvatar(
-                                radius: 30,
-                                backgroundImage: AssetImage("images/welcomeman.png"),
-                              ),
-                              CircleAvatar(
-                                backgroundColor: Colors.green,
-                                radius: 7,
-
-                              )
-                            ],
-                          ),
-                        ),
-                        Text("Eslam",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 15,),
-
-                ],
-              ),
-            ),
-            SizedBox(height: 20,),
-            Expanded(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 80,
-                          child: Column(
-
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Stack(
-                                  alignment: Alignment.bottomRight,
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 30,
-                                      backgroundImage: AssetImage("images/welcomeman.png"),
-                                    ),
-                                    CircleAvatar(
-                                      backgroundColor: Colors.green,
-                                      radius: 7,
-
-                                    )
-                                  ],
-                                ),
-                              ),
-
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Kareem Ahmed",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
-                              SizedBox(height: 10,),
-                                  Row(
-                                    children: [
-                                      Text("Welcome to flutter",style: TextStyle(color: Colors.white),),
-                                      SizedBox(width: 100,),
-                                      Text("11:37 PM",style: TextStyle(color: Colors.white),)
-                                    ],
-                                  ),
-
-                            ],
-                          ),
-                        )
-
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          width: 80,
-                          child: Column(
-
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Stack(
-                                  alignment: Alignment.bottomRight,
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 30,
-                                      backgroundImage: AssetImage("images/welcomeman.png"),
-                                    ),
-
-                                  ],
-                                ),
-                              ),
-
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("OmarAhmed",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
-                              SizedBox(height: 10,),
-                              Stack(
-                                alignment: Alignment.bottomRight,
-
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text("Welcome to Anything",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
-                                      SizedBox(width: 80,),
-
-                                    ],
-                                  ),
-                                  Text("11:37 PM",style: TextStyle(color: Colors.white),)
-                                ],
-                              )
-
-
-
-                            ],
-                          ),
-                        )
-
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          width: 80,
-                          child: Column(
-
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Stack(
-                                  alignment: Alignment.bottomRight,
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 30,
-                                      backgroundImage: AssetImage("images/welcomeman.png"),
-                                    ),
-                                    CircleAvatar(
-                                      backgroundColor: Colors.green,
-                                      radius: 7,
-
-                                    )
-                                  ],
-                                ),
-                              ),
-
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Eslam Medhat",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
-                              SizedBox(height: 10,),
-                              Stack(
-                                alignment: Alignment.bottomRight,
-
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text("Welcome to Flutter and firebase",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
-                                      SizedBox(width: 80,),
-
-                                    ],
-                                  ),
-                                  Text("11:37 PM",style: TextStyle(color: Colors.white),)
-                                ],
-                              )
-
-
-
-                            ],
-                          ),
-                        )
-
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          width: 80,
-                          child: Column(
-
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Stack(
-                                  alignment: Alignment.bottomRight,
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 30,
-                                      backgroundImage: AssetImage("images/welcomeman.png"),
-                                    ),
-
-                                  ],
-                                ),
-                              ),
-
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Ahmed Emad",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
-                              SizedBox(height: 10,),
-                              Stack(
-                                alignment: Alignment.bottomRight,
-
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text("Welcome to BackEnd",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
-                                      SizedBox(width: 80,),
-
-                                    ],
-                                  ),
-                                  Text("11:37 PM",style: TextStyle(color: Colors.white),)
-                                ],
-                              )
-
-
-
-                            ],
-                          ),
-                        )
-
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          width: 80,
-                          child: Column(
-
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Stack(
-                                  alignment: Alignment.bottomRight,
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 30,
-                                      backgroundImage: AssetImage("images/welcomeman.png"),
-                                    ),
-
-                                  ],
-                                ),
-                              ),
-
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Assim Ayman",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
-                              SizedBox(height: 10,),
-                              Stack(
-                                alignment: Alignment.bottomRight,
-
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text("Welcome to Front-End",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
-                                      SizedBox(width: 80,),
-
-                                    ],
-                                  ),
-                                  Text("11:37 PM",style: TextStyle(color: Colors.white),)
-                                ],
-                              )
-
-
-
-                            ],
-                          ),
-                        )
-
-                      ],
-                    ),
-                    Row(
-                children: [
-                Container(
-                width: 80,
-                child: Column(
-
-                children: [
-                Padding(
-                padding: const EdgeInsets.all(10.0),
-              child: Stack(
-                alignment: Alignment.bottomRight,
-                children: [
-                  CircleAvatar(
-                    radius: 30,
-                    backgroundImage: AssetImage("images/welcomeman.png"),
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Colors.green,
-                    radius: 7,
-
+                    height: 450,
+                    child: ListView.builder(
+                     // physics: NeverScrollableScrollPhysics(),
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return buildlist();
+                      },),
                   )
                 ],
               ),
-            ),
 
-          ],
+
+            ],
+          ),
         ),
       ),
-      Expanded(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Youssef el gebaly",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
-            SizedBox(height: 10,),
-            Row(
+    );
+
+  }
+  Widget buildstory()
+  {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+
+      child: Row(
+        children: [
+          Container(
+            width: 80,
+            child: Column(
+
               children: [
-                Text("Welcome to JS",style: TextStyle(color: Colors.white),),
-                SizedBox(width: 125,),
-                Text("11:37 PM",style: TextStyle(color: Colors.white),)
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage("images/welcomeman.png"),
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.green,
+                        radius: 7,
+
+                      )
+                    ],
+                  ),
+                ),
+                Text("Kareem",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
               ],
             ),
+          ),
+          SizedBox(width: 15,),
+          Container(
+            width: 80,
+            child: Column(
 
-          ],
-        ),
-      )
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage("images/welcomeman.png"),
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.green,
+                        radius: 7,
 
-      ],
-    ),
-                    Row(
-                      children: [
-                        Container(
-                          width: 80,
-                          child: Column(
+                      )
+                    ],
+                  ),
+                ),
+                Text("Eslam",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
+              ],
+            ),
+          ),
+          SizedBox(width: 15,),
+          Container(
+            width: 80,
+            child: Column(
 
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Stack(
-                                  alignment: Alignment.bottomRight,
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 30,
-                                      backgroundImage: AssetImage("images/welcomeman.png"),
-                                    ),
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage("images/welcomeman.png"),
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.green,
+                        radius: 7,
 
-                                  ],
-                                ),
-                              ),
+                      )
+                    ],
+                  ),
+                ),
+                Text("Ahmed",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
+              ],
+            ),
+          ),
+          SizedBox(width: 15,),
+          Container(
+            width: 80,
+            child: Column(
 
-                            ],
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage("images/welcomeman.png"),
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.green,
+                        radius: 7,
+
+                      )
+                    ],
+                  ),
+                ),
+                Text("Mohamed",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
+              ],
+            ),
+          ),
+          SizedBox(width: 15,),
+          Container(
+            width: 80,
+            child: Column(
+
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage("images/welcomeman.png"),
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.green,
+                        radius: 7,
+
+                      )
+                    ],
+                  ),
+                ),
+                Text("Eslam",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
+              ],
+            ),
+          ),
+          SizedBox(width: 15,),
+          Container(
+            width: 80,
+            child: Column(
+
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage("images/welcomeman.png"),
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.green,
+                        radius: 7,
+
+                      )
+                    ],
+                  ),
+                ),
+                Text("Eslam",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
+              ],
+            ),
+          ),
+          SizedBox(width: 15,),
+          Container(
+            width: 80,
+            child: Column(
+
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage("images/welcomeman.png"),
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.green,
+                        radius: 7,
+
+                      )
+                    ],
+                  ),
+                ),
+                Text("Eslam",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
+              ],
+            ),
+          ),
+          SizedBox(width: 15,),
+          Container(
+            width: 80,
+            child: Column(
+
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Stack(
+                    alignment: Alignment.bottomRight,
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage("images/welcomeman.png"),
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.green,
+                        radius: 7,
+
+                      )
+                    ],
+                  ),
+                ),
+                Text("Eslam",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,)
+              ],
+            ),
+          ),
+          SizedBox(width: 15,),
+
+        ],
+      ),
+    );
+  }
+  Widget buildlist()
+  {
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 80,
+                child: Column(
+
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage: AssetImage("images/welcomeman.png"),
                           ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Mohamed Saad",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
-                              SizedBox(height: 10,),
-                              Stack(
-                                alignment: Alignment.bottomRight,
+                          CircleAvatar(
+                            backgroundColor: Colors.green,
+                            radius: 7,
 
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(child: Text("Welcome to Assignment",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,)),
-                                      SizedBox(width: 80,),
-
-                                    ],
-                                  ),
-                                  Text("11:37 PM",style: TextStyle(color: Colors.white),)
-                                ],
-                              )
-
-
-
-                            ],
-                          ),
-                        )
-
-                      ],
+                          )
+                        ],
+                      ),
                     ),
-
 
                   ],
                 ),
               ),
-            ),
-          ],
-        ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Kareem Ahmed",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+                    SizedBox(height: 10,),
+                    Row(
+                      children: [
+                        Text("Welcome to flutter",style: TextStyle(color: Colors.white),),
+                        SizedBox(width: 100,),
+                        Text("11:37 PM",style: TextStyle(color: Colors.white),)
+                      ],
+                    ),
+
+                  ],
+                ),
+              )
+
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+                width: 80,
+                child: Column(
+
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage: AssetImage("images/welcomeman.png"),
+                          ),
+
+                        ],
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("OmarAhmed",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+                    SizedBox(height: 10,),
+                    Stack(
+                      alignment: Alignment.bottomRight,
+
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Welcome to Anything",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
+                            SizedBox(width: 80,),
+
+                          ],
+                        ),
+                        Text("11:37 PM",style: TextStyle(color: Colors.white),)
+                      ],
+                    )
+
+
+
+                  ],
+                ),
+              )
+
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+                width: 80,
+                child: Column(
+
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage: AssetImage("images/welcomeman.png"),
+                          ),
+                          CircleAvatar(
+                            backgroundColor: Colors.green,
+                            radius: 7,
+
+                          )
+                        ],
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Eslam Medhat",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+                    SizedBox(height: 10,),
+                    Stack(
+                      alignment: Alignment.bottomRight,
+
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Welcome to Flutter and firebase",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
+                            SizedBox(width: 80,),
+
+                          ],
+                        ),
+                        Text("11:37 PM",style: TextStyle(color: Colors.white),)
+                      ],
+                    )
+
+
+
+                  ],
+                ),
+              )
+
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+                width: 80,
+                child: Column(
+
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage: AssetImage("images/welcomeman.png"),
+                          ),
+
+                        ],
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Ahmed Emad",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+                    SizedBox(height: 10,),
+                    Stack(
+                      alignment: Alignment.bottomRight,
+
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Welcome to BackEnd",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
+                            SizedBox(width: 80,),
+
+                          ],
+                        ),
+                        Text("11:37 PM",style: TextStyle(color: Colors.white),)
+                      ],
+                    )
+
+
+
+                  ],
+                ),
+              )
+
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+                width: 80,
+                child: Column(
+
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage: AssetImage("images/welcomeman.png"),
+                          ),
+
+                        ],
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Assim Ayman",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+                    SizedBox(height: 10,),
+                    Stack(
+                      alignment: Alignment.bottomRight,
+
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Welcome to Front-End",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
+                            SizedBox(width: 80,),
+
+                          ],
+                        ),
+                        Text("11:37 PM",style: TextStyle(color: Colors.white),)
+                      ],
+                    )
+
+
+
+                  ],
+                ),
+              )
+
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+                width: 80,
+                child: Column(
+
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage: AssetImage("images/welcomeman.png"),
+                          ),
+                          CircleAvatar(
+                            backgroundColor: Colors.green,
+                            radius: 7,
+
+                          )
+                        ],
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Youssef el gebaly",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+                    SizedBox(height: 10,),
+                    Row(
+                      children: [
+                        Text("Welcome to JS",style: TextStyle(color: Colors.white),),
+                        SizedBox(width: 125,),
+                        Text("11:37 PM",style: TextStyle(color: Colors.white),)
+                      ],
+                    ),
+
+                  ],
+                ),
+              )
+
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+                width: 80,
+                child: Column(
+
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Stack(
+                        alignment: Alignment.bottomRight,
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage: AssetImage("images/welcomeman.png"),
+                          ),
+
+                        ],
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Mohamed Saad",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+                    SizedBox(height: 10,),
+                    Stack(
+                      alignment: Alignment.bottomRight,
+
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(child: Text("Welcome to Assignment",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,)),
+                            SizedBox(width: 80,),
+
+                          ],
+                        ),
+                        Text("11:37 PM",style: TextStyle(color: Colors.white),)
+                      ],
+                    )
+
+
+
+                  ],
+                ),
+              )
+
+            ],
+          ),
+
+
+        ],
       ),
     );
+    //Expanded(
+    //               child: SingleChildScrollView(
+    //                 scrollDirection: Axis.vertical,
+    //
+    //                 child: Column(
+    //                   children: [
+    //                     Row(
+    //                       children: [
+    //                         Container(
+    //                           width: 80,
+    //                           child: Column(
+    //
+    //                             children: [
+    //                               Padding(
+    //                                 padding: const EdgeInsets.all(10.0),
+    //                                 child: Stack(
+    //                                   alignment: Alignment.bottomRight,
+    //                                   children: [
+    //                                     CircleAvatar(
+    //                                       radius: 30,
+    //                                       backgroundImage: AssetImage("images/welcomeman.png"),
+    //                                     ),
+    //                                     CircleAvatar(
+    //                                       backgroundColor: Colors.green,
+    //                                       radius: 7,
+    //
+    //                                     )
+    //                                   ],
+    //                                 ),
+    //                               ),
+    //
+    //                             ],
+    //                           ),
+    //                         ),
+    //                         Expanded(
+    //                           child: Column(
+    //                             mainAxisAlignment: MainAxisAlignment.start,
+    //                             crossAxisAlignment: CrossAxisAlignment.start,
+    //                             children: [
+    //                               Text("Kareem Ahmed",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+    //                               SizedBox(height: 10,),
+    //                                   Row(
+    //                                     children: [
+    //                                       Text("Welcome to flutter",style: TextStyle(color: Colors.white),),
+    //                                       SizedBox(width: 100,),
+    //                                       Text("11:37 PM",style: TextStyle(color: Colors.white),)
+    //                                     ],
+    //                                   ),
+    //
+    //                             ],
+    //                           ),
+    //                         )
+    //
+    //                       ],
+    //                     ),
+    //                     Row(
+    //                       children: [
+    //                         Container(
+    //                           width: 80,
+    //                           child: Column(
+    //
+    //                             children: [
+    //                               Padding(
+    //                                 padding: const EdgeInsets.all(10.0),
+    //                                 child: Stack(
+    //                                   alignment: Alignment.bottomRight,
+    //                                   children: [
+    //                                     CircleAvatar(
+    //                                       radius: 30,
+    //                                       backgroundImage: AssetImage("images/welcomeman.png"),
+    //                                     ),
+    //
+    //                                   ],
+    //                                 ),
+    //                               ),
+    //
+    //                             ],
+    //                           ),
+    //                         ),
+    //                         Expanded(
+    //                           child: Column(
+    //                             mainAxisAlignment: MainAxisAlignment.start,
+    //                             crossAxisAlignment: CrossAxisAlignment.start,
+    //                             children: [
+    //                               Text("OmarAhmed",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+    //                               SizedBox(height: 10,),
+    //                               Stack(
+    //                                 alignment: Alignment.bottomRight,
+    //
+    //                                 children: [
+    //                                   Row(
+    //                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //                                     children: [
+    //                                       Text("Welcome to Anything",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
+    //                                       SizedBox(width: 80,),
+    //
+    //                                     ],
+    //                                   ),
+    //                                   Text("11:37 PM",style: TextStyle(color: Colors.white),)
+    //                                 ],
+    //                               )
+    //
+    //
+    //
+    //                             ],
+    //                           ),
+    //                         )
+    //
+    //                       ],
+    //                     ),
+    //                     Row(
+    //                       children: [
+    //                         Container(
+    //                           width: 80,
+    //                           child: Column(
+    //
+    //                             children: [
+    //                               Padding(
+    //                                 padding: const EdgeInsets.all(10.0),
+    //                                 child: Stack(
+    //                                   alignment: Alignment.bottomRight,
+    //                                   children: [
+    //                                     CircleAvatar(
+    //                                       radius: 30,
+    //                                       backgroundImage: AssetImage("images/welcomeman.png"),
+    //                                     ),
+    //                                     CircleAvatar(
+    //                                       backgroundColor: Colors.green,
+    //                                       radius: 7,
+    //
+    //                                     )
+    //                                   ],
+    //                                 ),
+    //                               ),
+    //
+    //                             ],
+    //                           ),
+    //                         ),
+    //                         Expanded(
+    //                           child: Column(
+    //                             mainAxisAlignment: MainAxisAlignment.start,
+    //                             crossAxisAlignment: CrossAxisAlignment.start,
+    //                             children: [
+    //                               Text("Eslam Medhat",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+    //                               SizedBox(height: 10,),
+    //                               Stack(
+    //                                 alignment: Alignment.bottomRight,
+    //
+    //                                 children: [
+    //                                   Row(
+    //                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //                                     children: [
+    //                                       Text("Welcome to Flutter and firebase",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
+    //                                       SizedBox(width: 80,),
+    //
+    //                                     ],
+    //                                   ),
+    //                                   Text("11:37 PM",style: TextStyle(color: Colors.white),)
+    //                                 ],
+    //                               )
+    //
+    //
+    //
+    //                             ],
+    //                           ),
+    //                         )
+    //
+    //                       ],
+    //                     ),
+    //                     Row(
+    //                       children: [
+    //                         Container(
+    //                           width: 80,
+    //                           child: Column(
+    //
+    //                             children: [
+    //                               Padding(
+    //                                 padding: const EdgeInsets.all(10.0),
+    //                                 child: Stack(
+    //                                   alignment: Alignment.bottomRight,
+    //                                   children: [
+    //                                     CircleAvatar(
+    //                                       radius: 30,
+    //                                       backgroundImage: AssetImage("images/welcomeman.png"),
+    //                                     ),
+    //
+    //                                   ],
+    //                                 ),
+    //                               ),
+    //
+    //                             ],
+    //                           ),
+    //                         ),
+    //                         Expanded(
+    //                           child: Column(
+    //                             mainAxisAlignment: MainAxisAlignment.start,
+    //                             crossAxisAlignment: CrossAxisAlignment.start,
+    //                             children: [
+    //                               Text("Ahmed Emad",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+    //                               SizedBox(height: 10,),
+    //                               Stack(
+    //                                 alignment: Alignment.bottomRight,
+    //
+    //                                 children: [
+    //                                   Row(
+    //                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //                                     children: [
+    //                                       Text("Welcome to BackEnd",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
+    //                                       SizedBox(width: 80,),
+    //
+    //                                     ],
+    //                                   ),
+    //                                   Text("11:37 PM",style: TextStyle(color: Colors.white),)
+    //                                 ],
+    //                               )
+    //
+    //
+    //
+    //                             ],
+    //                           ),
+    //                         )
+    //
+    //                       ],
+    //                     ),
+    //                     Row(
+    //                       children: [
+    //                         Container(
+    //                           width: 80,
+    //                           child: Column(
+    //
+    //                             children: [
+    //                               Padding(
+    //                                 padding: const EdgeInsets.all(10.0),
+    //                                 child: Stack(
+    //                                   alignment: Alignment.bottomRight,
+    //                                   children: [
+    //                                     CircleAvatar(
+    //                                       radius: 30,
+    //                                       backgroundImage: AssetImage("images/welcomeman.png"),
+    //                                     ),
+    //
+    //                                   ],
+    //                                 ),
+    //                               ),
+    //
+    //                             ],
+    //                           ),
+    //                         ),
+    //                         Expanded(
+    //                           child: Column(
+    //                             mainAxisAlignment: MainAxisAlignment.start,
+    //                             crossAxisAlignment: CrossAxisAlignment.start,
+    //                             children: [
+    //                               Text("Assim Ayman",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+    //                               SizedBox(height: 10,),
+    //                               Stack(
+    //                                 alignment: Alignment.bottomRight,
+    //
+    //                                 children: [
+    //                                   Row(
+    //                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //                                     children: [
+    //                                       Text("Welcome to Front-End",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,),
+    //                                       SizedBox(width: 80,),
+    //
+    //                                     ],
+    //                                   ),
+    //                                   Text("11:37 PM",style: TextStyle(color: Colors.white),)
+    //                                 ],
+    //                               )
+    //
+    //
+    //
+    //                             ],
+    //                           ),
+    //                         )
+    //
+    //                       ],
+    //                     ),
+    //                     Row(
+    //                 children: [
+    //                 Container(
+    //                 width: 80,
+    //                 child: Column(
+    //
+    //                 children: [
+    //                 Padding(
+    //                 padding: const EdgeInsets.all(10.0),
+    //               child: Stack(
+    //                 alignment: Alignment.bottomRight,
+    //                 children: [
+    //                   CircleAvatar(
+    //                     radius: 30,
+    //                     backgroundImage: AssetImage("images/welcomeman.png"),
+    //                   ),
+    //                   CircleAvatar(
+    //                     backgroundColor: Colors.green,
+    //                     radius: 7,
+    //
+    //                   )
+    //                 ],
+    //               ),
+    //             ),
+    //
+    //           ],
+    //         ),
+    //       ),
+    //       Expanded(
+    //         child: Column(
+    //           mainAxisAlignment: MainAxisAlignment.start,
+    //           crossAxisAlignment: CrossAxisAlignment.start,
+    //           children: [
+    //             Text("Youssef el gebaly",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+    //             SizedBox(height: 10,),
+    //             Row(
+    //               children: [
+    //                 Text("Welcome to JS",style: TextStyle(color: Colors.white),),
+    //                 SizedBox(width: 125,),
+    //                 Text("11:37 PM",style: TextStyle(color: Colors.white),)
+    //               ],
+    //             ),
+    //
+    //           ],
+    //         ),
+    //       )
+    //
+    //       ],
+    //     ),
+    //                     Row(
+    //                       children: [
+    //                         Container(
+    //                           width: 80,
+    //                           child: Column(
+    //
+    //                             children: [
+    //                               Padding(
+    //                                 padding: const EdgeInsets.all(10.0),
+    //                                 child: Stack(
+    //                                   alignment: Alignment.bottomRight,
+    //                                   children: [
+    //                                     CircleAvatar(
+    //                                       radius: 30,
+    //                                       backgroundImage: AssetImage("images/welcomeman.png"),
+    //                                     ),
+    //
+    //                                   ],
+    //                                 ),
+    //                               ),
+    //
+    //                             ],
+    //                           ),
+    //                         ),
+    //                         Expanded(
+    //                           child: Column(
+    //                             mainAxisAlignment: MainAxisAlignment.start,
+    //                             crossAxisAlignment: CrossAxisAlignment.start,
+    //                             children: [
+    //                               Text("Mohamed Saad",style: TextStyle(color: Colors.white),maxLines: 2,overflow: TextOverflow.ellipsis,),
+    //                               SizedBox(height: 10,),
+    //                               Stack(
+    //                                 alignment: Alignment.bottomRight,
+    //
+    //                                 children: [
+    //                                   Row(
+    //                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //                                     children: [
+    //                                       Expanded(child: Text("Welcome to Assignment",style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,maxLines: 2,)),
+    //                                       SizedBox(width: 80,),
+    //
+    //                                     ],
+    //                                   ),
+    //                                   Text("11:37 PM",style: TextStyle(color: Colors.white),)
+    //                                 ],
+    //                               )
+    //
+    //
+    //
+    //                             ],
+    //                           ),
+    //                         )
+    //
+    //                       ],
+    //                     ),
+    //
+    //
+    //                   ],
+    //                 ),
+    //               ),
+    //             ),
   }
 }
